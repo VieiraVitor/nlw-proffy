@@ -23,7 +23,10 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
 
             <div className="header-content">
                 <strong>{props.title}</strong>
+                
+                {props.children}
             </div>
+
         </header>
     );
 }
