@@ -1,5 +1,8 @@
 import React from 'react';
+
 import PageHeader from '../../components/pageHeader';
+
+import './style.css';
 
 function TeacherForm() {
     return (
