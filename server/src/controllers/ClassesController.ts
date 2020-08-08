@@ -33,6 +33,17 @@ export default class ClassesController {
 
             const user_id = insertedUserIds[0];
 
+            const insertedClassesIds = await trx('classes').insert({
+                subject,
+                cost,
+                user_id
+            })
+
+            const class_id = insertedClassesIds[0];
+
+            console.log(insertedClassesIds);
+            console.log(class_id);
+
             await trx.commit();
 
             return response.status(201).send();
