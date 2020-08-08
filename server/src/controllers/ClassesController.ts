@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../database/connection';
+import convertHourToMinutes from '../utils/convertHourToMinutes';
 
 interface ScheduleItem {
     week_day: number,
@@ -41,8 +42,16 @@ export default class ClassesController {
 
             const class_id = insertedClassesIds[0];
 
-            console.log(insertedClassesIds);
-            console.log(class_id);
+            const classSchedule = schedule.map((scheduleItem: ScheduleItem) => {
+                return {
+                    class_id,
+                    week_day: scheduleItem.week_day,
+                    from: convertHourToMinutes(scheduleItem.from),
+                    to: convertHourToMinutes(scheduleItem.to),
+                };
+            })
+        
+            await trx('class_schedule').insert(classSchedule);
 
             await trx.commit();
 
