@@ -9,6 +9,7 @@ import warningIcon from '../../assets/images/icons/warning.svg';
 import './style.css';
 import Textarea from '../../components/Textarea';
 import Select from '../../components/Select';
+import api from '../../services/api';
 
 function TeacherForm() {
 
@@ -48,14 +49,18 @@ function TeacherForm() {
     function handleCreateClass(event: FormEvent) {
         event.preventDefault();
 
-        console.log({
+        api.post('classes', {
             name,
             avatar,
             whatsapp,
             bio,
             subject,
-            cost,
-            scheduleItems
+            cost: Number(cost),
+            schedule: scheduleItems
+        }).then(() => {
+            alert('Cadastro realizado com sucesso!');
+        }).catch(() => {
+            alert('Erro ao cadastrar!');
         })
     }
 
