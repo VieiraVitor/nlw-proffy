@@ -113,7 +113,7 @@ function TeacherForm() {
                             onChange={(event) => { setSubject(event.target.value) }}
                             options={[
                                 { value: 'Artes', label: 'Artes' },
-                                { value: 'Biolodia', label: 'Biolodia' },
+                                { value: 'Biologia', label: 'Biologia' },
                                 { value: 'Ciências', label: 'Ciências' },
                                 { value: 'Educação Física', label: 'Educação Física' },
                                 { value: 'Geografia', label: 'Geografia' },
