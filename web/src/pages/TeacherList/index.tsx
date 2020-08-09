@@ -42,6 +42,10 @@ function TeacherList() {
                         ]}
                     />
                     <Input type="time" name="time" label="Hora" />
+
+                    <button type="submit">
+                        Pesquisar
+                    </button>
                 </form>
             </PageHeader>
 
